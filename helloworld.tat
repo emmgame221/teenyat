@@ -1,0 +1,34 @@
+; Hello World!
+    set r2, 10
+    set r3, 0
+!loop
+    set r1, 'H'
+    stor OUT, r1
+    set r1, 'e'
+    stor OUT, r1
+    set r1, 'l'
+    stor OUT, r1
+    stor OUT, r1
+    set r1, 'o'
+    stor OUT, r1
+    set r1, ' '
+    stor OUT, r1
+    set r1, 'W'
+    stor OUT, r1
+    set r1, 'o'
+    stor OUT, r1
+    set r1, 'r'
+    stor OUT, r1
+    set r1, 'l'
+    stor OUT, r1
+    set r1, 'd'
+    stor OUT, r1
+    set r1, '!'
+    stor OUT, r1
+    set r1, '\r'
+    stor OUT, r1
+    set r1, '\n'
+    stor OUT, r1
+    dec r2
+    jg  r2, r3, !loop
+    stor END, r3

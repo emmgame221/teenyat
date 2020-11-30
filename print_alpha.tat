@@ -1,0 +1,58 @@
+    set r1, 'E'
+    stor OUT, r1
+    set r1, 'n'
+    stor OUT, r1
+    set r1, 't'
+    stor OUT, r1
+    set r1, 'e'
+    stor OUT, r1
+    set r1, 'r'
+    stor OUT, r1
+    set r1, ' '
+    stor OUT, r1
+    set r1, 'l'
+    stor OUT, r1
+    set r1, 'o'
+    stor OUT, r1
+    set r1, 'w'
+    stor OUT, r1
+    set r1, 'e'
+    stor OUT, r1
+    set r1, 'r'
+    stor OUT, r1
+    set r1, 'c'
+    stor OUT, r1
+    set r1, 'a'
+    stor OUT, r1
+    set r1, 's'
+    stor OUT, r1
+    set r1, 'e'
+    stor OUT, r1
+    set r1, ' '
+    stor OUT, r1
+    set r1, 'l'
+    stor OUT, r1
+    set r1, 'e'
+    stor OUT, r1
+    set r1, 't'
+    stor OUT, r1
+    stor OUT, r1
+    set r1, 'e'
+    stor OUT, r1
+    set r1, 'r'
+    stor OUT, r1
+    set r1, ':'
+    stor OUT, r1
+    set r1, ' '
+    stor OUT, r1
+    load r1, IN
+    set r2, 'a'
+    set r3, 'z'
+    jl  r1, r2, !done
+    jg  r1, r3, !done
+!loop
+    inc r1
+    stor OUT, r1
+    jl  r1, r3, !loop
+!done
+    stor END, r4
