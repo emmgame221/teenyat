@@ -66,11 +66,9 @@ impl TeenyAT {
             self.mem.print_program();
         }
         loop {
-            //println!("{} {} {} {} {} {} {} {}", self.pc, self.r1, self.r2, self.r3, self.r4, self.r5, self.r6, self.sp);
             self.fetch()?;
             self.decode()?;
             self.execute()?;
-            //std::thread::sleep(std::time::Duration::from_nanos(1));
         }
     }
 

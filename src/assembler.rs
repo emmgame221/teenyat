@@ -60,12 +60,7 @@ pub fn parse_file(path: &str) -> io::Result<Memory> {
                 Token::Label(_, _) => {
                     handle_label(&tok, &mut labels, false, next_ins_addr, linenum)?;
                 }
-                _ => {
-                    /*return Err(io::Error::new(
-                        io::ErrorKind::Other,
-                        format!("Parse error: Immediate or register mnemonic out of position at line {}: {:?}", linenum, tok),
-                    ))*/
-                }
+                _ => (),
             }
             i += 1;
         }

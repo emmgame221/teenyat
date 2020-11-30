@@ -349,7 +349,6 @@ impl Memory {
     }
 
     pub fn from_rom_file(path: &str) -> io::Result<Self> {
-        //println!("Reading from rom file.");
         let mut mem = Self::new();
         let file = File::open(path)?;
         let mut bytes = file.bytes();
@@ -357,11 +356,9 @@ impl Memory {
             let upper = byte as u16;
             let lower = (bytes.next().unwrap().unwrap() as u16) << 8;
             let word = upper | lower;
-            //print!("{:04x} ", word);
             mem.ram[mem.next_ins] = word;
             mem.next_ins += 1;
         }
-        //println!("");
         Ok(mem)
     }
 
@@ -391,8 +388,6 @@ impl Memory {
     pub fn print_program(&self) {
         let mut i = 0usize;
         while i < self.next_ins {
-            //let ins = Instruction::new(self.ram[i], self.ram[i + 1]);
-            //println!("{}", ins);
             println!("0x{:04x} 0x{:04x}", self.ram[i], self.ram[i + 1]);
             i += 2;
         }
@@ -410,10 +405,10 @@ impl Memory {
     fn bytes(&self) -> Vec<u8> {
         let mut bytes: Vec<u8> = Vec::new();
         for (i, word) in self.ram.iter().enumerate() {
-            let byte1 = ((*word & 0xFF00) >> 8) as u8;
-            let byte2 = (*word & 0x00FF) as u8;
-            bytes.push(byte2);
-            bytes.push(byte1);
+            let upper = ((*word & 0xFF00) >> 8) as u8;
+            let lower = (*word & 0x00FF) as u8;
+            bytes.push(lower);
+            bytes.push(upper);
             if i > self.next_ins {
                 break;
             }
